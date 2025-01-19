@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
+'''
 
-“””
 Sözlük ile Basit Ürün Kataloğu
 Görev:
 	•	Kullanıcıdan ürün isimleri ve fiyatlarını alarak bir sözlük oluşturun.
@@ -15,7 +15,8 @@ Elma 5
 Armut 7
 Ürün adı: Elma
 Fiyat: 5 TL
-“””
+
+'''
 
 
 
