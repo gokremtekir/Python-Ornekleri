@@ -2,7 +2,8 @@
 # -*- coding: utf-8 -*-
 
 
-“””Sözlük ile Basit Ürün Kataloğu
+“””
+Sözlük ile Basit Ürün Kataloğu
 Görev:
 	•	Kullanıcıdan ürün isimleri ve fiyatlarını alarak bir sözlük oluşturun.
 	•	Daha sonra kullanıcıdan bir ürün adı sorup, bu ürünün fiyatını ekrana yazdırın.
