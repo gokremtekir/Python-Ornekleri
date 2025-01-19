@@ -1,0 +1,23 @@
+
+
+"""
+4. Set ile Benzersiz Kelime Listesi
+Görev:
+	•	Kullanıcıdan bir cümle alın ve bu cümledeki benzersiz kelimeleri bir set kullanarak ekrana yazdırın.
+	•	Tüm kelimeler küçük harfe dönüştürülmeli.
+Örnek Çıktı:
+Bir cümle girin: Python öğrenmek harika, Python eğlenceli!
+Benzersiz kelimeler: {'öğrenmek', 'python', 'eğlenceli', 'harika'}
+"""
+
+
+benzersiz_kelimeler = set()
+
+cumle = input("Bir cümle girin: ")
+
+try:
+    benzersiz_kelimeler = set(cumle.lower().split())
+except ValueError:
+    print("Geçersiz giriş, lütfen bir cümle girin.")
+
+print(benzersiz_kelimeler)
