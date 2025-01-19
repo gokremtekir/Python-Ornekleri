@@ -1,1 +1,40 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+Created on Sun Jan 19 15:56:16 2025
 
+@author: gokremtekir
+"""
+"""
+1. ATM Simülasyonu
+	•	Kullanıcıdan işlem seçmesini isteyin:
+	•	1 → Bakiye sorgula
+	•	2 → Para yatır
+	•	3 → Para çek
+	•	4 → Çıkış yap
+	•	Kullanıcının girişine göre işlemi döngüyle yönetin.
+"""
+
+
+son = 1000.0
+
+while True:
+   print("1 → Bakiye sorgula")
+   print("2 → Para yatır")
+   print("3 → Para çek")
+   print("4 → Çıkış yap")
+   
+   giris = input("Hangi işlemi yapmak istersiniz:")
+
+   if giris == "1":
+        print("Bakiye:", son)
+   elif giris == "2":
+        yatan = float(input("Kaç TL yatıracaksınız? "))
+        son = son + yatan
+   elif giris == "3":
+        cekilen = float(input("Kaç TL çekeceksiniz? "))
+        son = son - cekilen
+   elif giris == "4":
+        break
+   else:
+        print("Yanlış tuşa bastınız")
