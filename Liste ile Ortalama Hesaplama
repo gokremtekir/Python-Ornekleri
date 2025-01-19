@@ -1,9 +1,9 @@
 '''
 1. Liste ile Ortalama Hesaplama
 Görev:
-	•	Kullanıcıdan bir öğrenci not listesi alarak listenin ortalamasını 
+    •   Kullanıcıdan bir öğrenci not listesi alarak listenin ortalamasını 
     hesaplayan bir program yazın.
-	•	Kullanıcıdan sürekli olarak not girmesi istenecek ve kullanıcı -1 
+    •   Kullanıcıdan sürekli olarak not girmesi istenecek ve kullanıcı -1 
     girdiğinde giriş işlemi sonlandırılacak.
 
 Örnek Çıktı:
@@ -14,7 +14,6 @@ Notları girin (çıkmak için -1 yazın):
 -1
 Ortalama: 84.33
 '''
-
 
 notlar = []
 
@@ -30,10 +29,8 @@ while True:
     except ValueError:
         print("Geçersiz veri girdiniz, lütfen sayı giriniz.")
 
-    
-if len(notlar)>0:
-    
-    ortalama = sum(notlar)/len(notlar)
+if len(notlar) > 0:
+    ortalama = sum(notlar) / len(notlar)
     print("Ortalama:", ortalama)
 else:
     print("Hiç not girilmedi")
