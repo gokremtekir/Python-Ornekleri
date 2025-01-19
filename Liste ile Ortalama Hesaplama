@@ -1,0 +1,32 @@
+"""
+
+Görev:
+	•	Kullanıcıdan bir öğrenci not listesi alarak listenin ortalamasını hesaplayan bir program yazın.
+	•	Kullanıcıdan sürekli olarak not girmesi istenecek ve kullanıcı -1 girdiğinde giriş işlemi sonlandırılacak.
+Örnek Çıktı:
+Notları girin (çıkmak için -1 yazın): 
+85
+90
+78
+-1
+Ortalama: 84.33
+"""
+
+
+
+
+notlar = []
+while True:
+    not_girisi = input("Notları girin (çıkmak için -1 yazın): ")
+    if not_girisi == "-1":
+        break
+    try:
+        not_degeri = float(not_girisi)
+        notlar.append(not_degeri)
+    except ValueError:
+        print("Geçersiz giriş, lütfen sayı girin.")
+if len(notlar) > 0:
+    ortalama = sum(notlar) / len(notlar)
+    print(f"Ortalama: {ortalama:.2f}")
+else:
+    print("Hiç not girilmedi.")
