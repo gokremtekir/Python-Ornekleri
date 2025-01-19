@@ -1,0 +1,24 @@
+"""
+
+Görev:
+	•	Bir haftanın günlerini tuple kullanarak saklayın.
+	•	Kullanıcıdan bir günün indeks numarasını alarak o günün adını ekrana yazdırın.
+	•	Eğer kullanıcı geçerli bir indeks girmezse uygun bir uyarı gösterin.
+Örnek Çıktı:
+
+
+Gün indeksini girin (0-6): 2
+Bugün Salı.
+
+"""
+
+2. Tuple ile Sabit Veriler
+gunler = ("Pazartesi", "Salı", "Çarşamba", "Perşembe", "Cuma", "Cumartesi", "Pazar")
+try:
+    indeks = int(input("Gün indeksini girin (0-6): "))
+    if 0 <= indeks < len(gunler):
+        print(f"Bugün {gunler[indeks]}.")
+    else:
+        print("Geçersiz indeks. 0 ile 6 arasında bir sayı girin.")
+except ValueError:
+    print("Geçersiz giriş, lütfen bir sayı girin.")
