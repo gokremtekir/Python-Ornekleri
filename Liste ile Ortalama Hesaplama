@@ -1,5 +1,7 @@
 """
 
+# Liste ile Ortalama Hesaplama
+
 Görev:
 	•	Kullanıcıdan bir öğrenci not listesi alarak listenin ortalamasını hesaplayan bir program yazın.
 	•	Kullanıcıdan sürekli olarak not girmesi istenecek ve kullanıcı -1 girdiğinde giriş işlemi sonlandırılacak.
