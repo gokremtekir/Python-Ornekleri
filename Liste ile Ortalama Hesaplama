@@ -1,4 +1,4 @@
-'''
+"""
 1. Liste ile Ortalama Hesaplama
 Görev:
     •   Kullanıcıdan bir öğrenci not listesi alarak listenin ortalamasını 
@@ -13,7 +13,7 @@ Notları girin (çıkmak için -1 yazın):
 78
 -1
 Ortalama: 84.33
-'''
+"""
 
 notlar = []
 
