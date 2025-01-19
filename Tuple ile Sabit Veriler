@@ -1,4 +1,5 @@
 """
+2. Tuple ile Sabit Veriler
 
 Görev:
 	•	Bir haftanın günlerini tuple kullanarak saklayın.
@@ -12,7 +13,6 @@ Bugün Salı.
 
 """
 
-2. Tuple ile Sabit Veriler
 gunler = ("Pazartesi", "Salı", "Çarşamba", "Perşembe", "Cuma", "Cumartesi", "Pazar")
 try:
     indeks = int(input("Gün indeksini girin (0-6): "))
