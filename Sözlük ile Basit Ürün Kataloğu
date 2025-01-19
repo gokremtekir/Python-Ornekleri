@@ -1,0 +1,32 @@
+“””Sözlük ile Basit Ürün Kataloğu
+Görev:
+	•	Kullanıcıdan ürün isimleri ve fiyatlarını alarak bir sözlük oluşturun.
+	•	Daha sonra kullanıcıdan bir ürün adı sorup, bu ürünün fiyatını ekrana yazdırın.
+	•	Eğer ürün bulunamazsa “Bu ürün listede yok.” mesajı gösterin.
+
+Örnek Çıktı:
+Ürün ve fiyat girin (çıkmak için 'q' yazın): 
+Elma 5
+Armut 7
+Ürün adı: Elma
+Fiyat: 5 TL
+“””
+
+
+
+urunler = {}
+while True:
+    giris = input("Ürün ve fiyat girin (çıkmak için 'q' yazın): ")
+    if giris.lower() == 'q':
+        break
+    try:
+        urun, fiyat = giris.split()
+        urunler[urun] = float(fiyat)
+    except ValueError:
+        print("Hatalı giriş! Ürün ve fiyatı aralarında boşluk bırakarak girin.")
+urun_adi = input("Ürün adı: ")
+if urun_adi in urunler:
+    print(f"Fiyat: {urunler[urun_adi]} TL")
+else:
+    print("Bu ürün listede yok.")
+
