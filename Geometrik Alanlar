@@ -1,0 +1,54 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+Created on Sun Jan 19 22:41:34 2025
+
+@author: gokremtekir
+
+"""
+# Fonksiyonlar
+
+# Karanin alanı
+
+def kare_alani(a):
+    alan = a**2
+    return alan
+
+# Dikdörtgenin alanı
+
+def dikdortgen_alani(a,b):
+    alan = a*b
+    return alan
+
+# Üçgen alanı
+
+def ucgen_alani(a, h):
+    alan=a*h/2
+    return alan
+
+# Daire alanı
+def daire_alani(r, pi=3.14):
+    alan = r**2*pi
+    return alan
+
+
+while True:
+    giris = input("Hangi işlemi yapmak istiyorsunuz ? ")
+    
+    if giris == "1":
+        a = float(input("Kenar bilgisi girin: "))
+        print(kare_alani(a))
+    elif giris == "2":
+        a = float(input("Kısa kenar ? "))
+        b = float(input("Uzun kenar ? "))
+        print(dikdortgen_alani(a, b))
+    elif giris == "3":
+        a = float(input("Taban kenar ? "))
+        h = float(input("Yükseklik ? "))
+        print(ucgen_alani(a, h))
+    elif giris =="4":
+        r = float(input("Yarı çap ? "))
+        print(daire_alani(r))
+    else:
+        break
+
