@@ -1,0 +1,181 @@
+
+"""
+Python: Veri Analizi ve Görselleştirme 
+
+Bu dersin amacı, Python’da veri analizi ve görselleştirme yapmayı 
+öğretmektir. 
+* NumPy ile matematiksel işlemler, 
+* Pandas ile veri manipülasyonu,
+* Matplotlib ile Seaborn kullanarak veri görselleştirme.
+
+1. NumPy ile Temel İşlemler
+
+
+	NumPy Nedir?
+	•	Bilimsel hesaplamalar için kullanılan bir kütüphanedir.
+	•	Çok boyutlu diziler (arrays) ve bu diziler üzerinde matematiksel 
+    işlemleri sağlar.
+    
+	•	NumPy’nin Avantajları:
+	•	     Listelere göre daha hızlı ve optimize edilmiştir.
+	•	     Karmaşık işlemler için geniş fonksiyon desteği sunar.
+
+"""
+# import numpy as np
+
+# dizi = np.array([1,2,3,4])
+
+# # print(dizi)
+
+# a = np.array([5,8,10])
+# b = np.array([20,40,75])
+
+# toplam = a + b
+
+# print(toplam)
+
+# print ("Fark: ", b-a)
+
+# print("Ortalama: ", np.mean(b-a))
+
+
+# matris = ([2,5], [7,10])
+
+# print(matris)
+
+
+
+
+
+# %%
+"""
+
+2. Pandas ile Veri Manipülasyonu
+•	Pandas Nedir?
+	•	Veri manipülasyonu ve analizi için güçlü bir kütüphanedir.
+	•	Veri setlerini tablolar (DataFrame) şeklinde işler.
+	•	Pandas Veri Yapıları:
+	•	     Series: Tek boyutlu veri.
+	•	     DataFrame: İki boyutlu, tablo şeklinde veri.
+    
+"""
+  
+
+# import pandas as pd
+
+# data = {
+#         "Ad" : ["Ali", "Ayşe", "Metin"],
+#         "Yaş": [20,15,12],
+#         "Şehir": ["Ankara", "İstanbul", "Bursa"]
+#         }
+
+# df = pd.DataFrame(data)
+
+# print(df)
+    
+
+  # %%  
+  
+"""
+    
+3. Veri Dosyası İnceleme
+
+    Öğrencilere bir CSV dosyasını okuyarak, belirli bir özelliği
+    filtreleyen bir program yazın.
+    
+ """
+    
+# df = pd.read_csv("/Users/gokremtekir/Downloads/Sinif.csv")
+
+# print(df.head())
+
+# print(df.info())
+
+# print(df.describe())
+    
+    
+# df_filtre = df[(df["Fizik Notu"]<50) | (df["Matematik Notu"]<50)]
+
+# print(df_filtre)
+    
+
+
+
+from google.colab import files
+
+uploaded = files.upload()
+
+import pandas as pd
+import io
+
+df = pd.read_csv("Sinif.csv")
+
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+# 1 - Öğrencilerin Matematik Notlarının Grafiği
+
+plt.figure(figsize = (10,6))
+
+sns.barplot(x= "Ogrenci_Adi", y= "Fizik_Notu", data = df)
+plt.title("Öğrencilerin Matematik Notları")
+plt.xlabel("Öğrenci Adı")
+plt.ylabel("Fizik Notu")
+plt.xticks(rotation = 45)
+plt.tight_layout()
+plt.show()
+
+
+plt.figure(figsize=(10, 6))
+sns.histplot(df["Matematik_Notu"], kde=True, bins=10, color='skyblue')
+plt.title("Matematik Notlarının Dağılımı")
+plt.xlabel("Matematik Notu")
+plt.ylabel("Frekans")
+plt.tight_layout()
+plt.show()
+
+
+plt.figure(figsize=(10, 6))
+sns.scatterplot(x="Matematik_Notu", y="Fizik_Notu", data=df, s=100)
+plt.title("Matematik ve Fizik Notları Arasındaki İlişki")
+plt.xlabel("Matematik Notu")
+plt.ylabel("Fizik Notu")
+plt.tight_layout()
+plt.show()
+
+
+
+plt.figure(figsize=(10, 6))
+sns.boxplot(data=df[["Matematik_Notu", "Türkce_Notu", "Fizik_Notu"]])
+plt.title("Notların İstatistiksel Dağılımı")
+plt.xlabel("Dersler")
+plt.ylabel("Notlar")
+plt.tight_layout()
+plt.show()
+
+
+
+
+plt.figure(figsize=(10, 6))
+correlation = df[["Matematik_Notu", "Türkce_Notu", "Fizik_Notu"]].corr()
+sns.heatmap(correlation, annot=True, cmap="coolwarm", fmt=".2f")
+plt.title("Ders Notları Arasındaki Korelasyon")
+plt.tight_layout()
+plt.show()
+
+
+
+plt.figure(figsize=(8, 8))
+df['Yas'].value_counts().plot.pie(autopct="%1.1f%%", startangle=90, colors=sns.color_palette("pastel"))
+plt.title("Öğrenci Yaşlarının Dağılımı")
+plt.ylabel("")  # Y eksenini gizle
+plt.tight_layout()
+plt.show()
+    
+    
+    
+    
+    
+ 
+    
+ 
