@@ -1,0 +1,118 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+Created on Wed Jan 22 09:05:50 2025
+
+@author: gokremtekir
+"""
+
+
+"""
+Bir araç filosu yönetimi örneği üzerinden tüm Nesne Tabanlı Programlama 
+kavramlarını anlatacağım. 
+
+Bu senaryoda her araç, gün içinde yaptığı kilometreyi, toplam kilometreyi ve 
+yakıt seviyesini takip eder. Ayrıca bu bilgileri istediğiniz zaman 
+görebilirsiniz.
+
+
+1. Sınıflar (Classes)
+Bir Araba sınıfı oluşturarak, her arabanın temel özelliklerini ve 
+davranışlarını tanımlayalım. Bu sınıfta şunları yapacağız:
+	•	Marka, model, plaka, yakıt seviyesi gibi özellikleri tanımlayacağız.
+	•	Kilometre ekleme ve yakıt seviyesi görüntüleme gibi davranışları 
+    tanımlayacağız.
+
+
+"""
+
+# %%
+
+
+class Araba:
+    def __init__(self, marka, model, plaka, yakit):
+        self.marka = marka
+        self.model = model
+        self.plaka = plaka
+        self.__yakit = yakit #Gizli özellik
+        self.toplam_km = 0
+        self.gunluk_km = 0
+        
+    def kilometre_ekle(self, km):
+        if km>0:
+            self.gunluk_km += km
+            self.toplam_km += km
+            self.__yakit -= km * 0.1 # Her 10 km için 1 litre yakıt
+            print(f"{self.plaka} plakalı araç {km} km yaptı. Kalan yakıt: {self.__yakit: .1f} litre")
+        else:
+            print("Geçersiz km")
+            
+    def yakit_ekle(self, miktar):
+        if miktar>0:
+            self.__yakit += miktar
+            print(f"{self.plaka} plakalı aracın yakıtı {self.__yakit: .1f} litredir.")
+          
+    def yakit_goster(self):
+        return f"{self.plaka} plakalı aracın yakıtı {self.__yakit: .1f} litredir."
+
+        
+
+
+class Elektrikliaraba (Araba):
+    
+    def __init__(self, marka, model, plaka, batarya_kap):
+        
+        super().__init__(marka, model, plaka,0)
+        self.batarya_kap = batarya_kap
+        
+    def kilometre_ekle(self, km):
+        if km>0:
+            self.gunluk_km += km
+            self.toplam_km += km
+            self.batarya_kap -= km * 0.2 # Her 10 km için 2 kwh yakıt harcanıyor.
+            # print(f"{self.plaka} plakalı araç {km} km yaptı. Kalan batarya: {self.batarya_kap: .1f} kwh")
+        else:
+            print("Geçersiz km")
+    
+        
+    def batarya_goster(self):
+        return f"{self.plaka} plakalı aracın bataryası {self.batarya_kap: .1f} kwh."
+    
+
+
+
+def yakit_bilgisi_sorgula(plaka, arac_listesi):
+    for arac in arac_listesi:
+        if arac.plaka == plaka:
+            if isinstance(arac, Elektrikliaraba):
+                print(arac.batarya_goster())
+            else:
+                print(arac.yakit_goster())
+            return
+    print(f"{plaka} plakalı araç bulunamadı.")
+
+
+
+araba1 = Araba("Toyota", "Corolla", "34ABC2025", 50)
+araba2 = Araba("Ford", "Focus", "06XYZ1923", 100)
+araba3 = Elektrikliaraba("Tesla", "Model3", "26Tekir1975", 75)
+arac_listesi = [araba1, araba2, araba3]
+
+
+
+
+araba1.kilometre_ekle(60)
+araba2.kilometre_ekle(80)
+araba3.kilometre_ekle(200)
+
+
+
+# print(araba1.yakit_goster())
+# print(araba2.yakit_goster())
+# print(araba3.batarya_goster())
+
+
+
+yakit_bilgisi_sorgula(input("Plaka Gir:"), arac_listesi)
+
+
