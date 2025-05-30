@@ -1,1 +1,3 @@
+s = "deneme Ali Gel"
+for i in s:
 
